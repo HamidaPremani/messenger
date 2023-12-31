@@ -21,12 +21,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      # - uses: actions/checkout@v3
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 20
-      # - run: npm ci
-      # - run: npm run
+      - name: Find Lambda Function
+        run: |
+            # Specify the Lambda function name you want to locate
+            lambda_function_name="lambda-nodejs-app"
+  
+            # Use the AWS CLI to describe the Lambda function
+            aws lambda get-function --function-name $lambda_function_name
 
 
   publish-npm:
