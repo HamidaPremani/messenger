@@ -37,8 +37,10 @@ jobs:
       - name: Run output.js and capture the output
         id: capture-output
         run: |
-            output=$(node output.js)
-            echo "::set-output name=OUTPUT::$output"
+            # output=$(node output.js)
+            # echo "::set-output name=OUTPUT::$output"
+            echo "OUTPUT_VARIABLE=value" >> $GITHUB_ENV
+            echo ${{ env.OUTPUT_VARIABLE }}
 
 
   publish-npm:
