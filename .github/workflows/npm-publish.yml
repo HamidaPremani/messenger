@@ -34,6 +34,12 @@ jobs:
           sudo apt-get install -y awscli
           aws --version 
 
+      - name: Run output.js and capture the output
+        id: capture-output
+        run: |
+            output=$(node output.js)
+            echo "::set-output name=OUTPUT::$output"
+
 
   publish-npm:
     needs: build
