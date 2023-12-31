@@ -27,7 +27,7 @@ jobs:
             lambda_function_name="lambda-nodejs-app"
   
             # Use the AWS CLI to describe the Lambda function
-            aws lambda get-function --function-name $lambda_function_name
+            aws lambda get-function --function-name "lambda-nodejs-app"
             
       - name: Install AWS CLI
         run: |
