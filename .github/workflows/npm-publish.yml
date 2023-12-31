@@ -41,6 +41,12 @@ jobs:
             # echo "::set-output name=OUTPUT::$output"
             echo "OUTPUT_VARIABLE=value" >> $GITHUB_ENV
             echo ${{ env.OUTPUT_VARIABLE }}
+            
+      - name: Publish to Lambda
+        run: | # Use the captured output and publish it to Lambda
+            aws lambda update-function-code \
+            --function-name $lambda_function_name \
+            --zip-file fileb://<(echo "$OUTPUT_VARIABLE")
 
 
   publish-npm:
