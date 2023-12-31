@@ -1,7 +1,7 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+name: Publish NodeJS code to Lambda
 
 on:
   push:
@@ -28,6 +28,11 @@ jobs:
   
             # Use the AWS CLI to describe the Lambda function
             aws lambda get-function --function-name $lambda_function_name
+            
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get install -y awscli
+          aws --version 
 
 
   publish-npm:
