@@ -28,6 +28,7 @@ jobs:
       - run: npm ci
       - run: npm run
 
+
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
@@ -39,5 +40,5 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+        # env:
+        #   NODE_AUTH_TOKEN: ${{secrets.npm_token}}
