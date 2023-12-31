@@ -41,6 +41,7 @@ jobs:
       - run: npm ci
       - run: npm list
       - run: ls -la
+      - run: node output.js
 
         # env:
         #   NODE_AUTH_TOKEN: ${{secrets.npm_token}}
