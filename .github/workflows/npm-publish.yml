@@ -45,7 +45,7 @@ jobs:
       - name: Publish to Lambda
         run: | # Use the captured output and publish it to Lambda
             aws lambda update-function-code --function-name "lambda-nodejs-app" \
-            --zip-file fileb://<(echo "$OUTPUT_VARIABLE")
+            --zip-file fileb://(echo "$OUTPUT_VARIABLE")
 
 
   publish-npm:
